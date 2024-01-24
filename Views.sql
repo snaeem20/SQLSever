@@ -18,3 +18,14 @@ RAISERROR ('This is message %s %d.', -- Message text.
            5); -- Second argument.
 
 GO
+
+---------------------------------------------------------------
+--Program Flow Statements
+--1. RETURN
+--2. THROW
+--3. TRY - CATCH
+--4. BREAK
+--5. CONTINUE
+--6. GOTO LABEL
+--7. IF ELSE
+---------------------------------------------------------------
