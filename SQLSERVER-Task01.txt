@@ -1,0 +1,11 @@
+Create a database with two table 
+
+1. Backup(Id, Filename) - Filename are stored in the format :
+date-filetype-servername (for example: 20240126-sql-DESKTOP_001)
+
+2. BackupLog(Id, Date, FileType, Servername)
+
+Whenever a record is inserted in the Backup table, the following should occur:
+1. The filename should be parsed into indivisual components - date, filetype and servername.
+2. These components should be inserted as a single record in the BackupLog table.
+
