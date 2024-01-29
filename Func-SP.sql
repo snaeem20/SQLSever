@@ -34,7 +34,27 @@ GO
 
 EXEC GetAllCourses 1
 
+----------------------------------------------
+--Common Table Expressions
+----------------------------------------------
+CREATE PROCEDURE GetAllCoursesUsingCTE
+	@FacultyID INT	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	WITH CourseByFaculty AS
+	(
+		SELECT * FROM Course
+		WHERE FacultyID = @FacultyID
+	)
+	SELECT * FROM CourseByFaculty
+	ORDER BY CourseName
 
+END
+GO
+
+EXEC GetAllCoursesUsingCTE 1
 
 --SQL Profiler
 --QUERY Optimizer
