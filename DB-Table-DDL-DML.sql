@@ -130,3 +130,19 @@ CREATE INDEX index_CName
 ON Course (CourseName)
 
 Drop Index index_CName ON Course
+
+
+------------------------------------------
+--WHILE LOOP
+------------------------------------------
+DECLARE @LoopCount INT
+SET @LoopCount = 0
+
+WHILE (@LoopCount < 5)
+	BEGIN
+		
+		INSERT INTO AuditLog
+		VALUES ('Added in the Loop')
+
+		SET @LoopCount = @LoopCount + 1		
+	END
