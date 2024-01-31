@@ -122,3 +122,11 @@ LEFT JOIN Course AS CRS ON FAC.FacultyID = CRS.FacultyID
 SELECT FAC.FacultyName 'Faculty', MNT.FacultyName 'Mentor' 
 FROM Faculty AS MNT
 INNER JOIN Faculty AS FAC ON MNT.FacultyID = FAC.FacultyMentor
+
+------------------------------------------------------------
+--Index
+------------------------------------------------------------
+CREATE INDEX index_CName
+ON Course (CourseName)
+
+Drop Index index_CName ON Course
