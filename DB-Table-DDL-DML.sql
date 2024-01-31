@@ -146,3 +146,32 @@ WHILE (@LoopCount < 5)
 
 		SET @LoopCount = @LoopCount + 1		
 	END
+
+------------------------------------------
+--WHILE LOOP with Cursors
+------------------------------------------
+DECLARE @AuditID INT
+SET @AuditID = 0
+
+DECLARE Cur CURSOR FOR
+SELECT Id FROM AuditLog
+
+OPEN Cur
+
+FETCH NEXT FROM Cur INTO @AuditID
+
+WHILE @@FETCH_STATUS = 0
+	BEGIN		
+		--Select @AuditID
+		IF @AuditID > 7
+			INSERT INTO Course
+			VALUES (@AuditID, 'PHP', 1, NULL)
+		
+		FETCH NEXT FROM Cur INTO @AuditID
+	END
+
+CLOSE Cur
+DEALLOCATE Cur
+
+Select * from AuditLog
+Select * from Course
